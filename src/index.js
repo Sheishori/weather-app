@@ -1,3 +1,9 @@
 import getWeatherData from './getWeatherData';
 
-console.log(getWeatherData());
+const input = document.getElementById('location');
+const button = document.querySelector('button');
+
+button.addEventListener('click', (e) => {
+	e.preventDefault();
+	console.log(getWeatherData(input.value));
+});
