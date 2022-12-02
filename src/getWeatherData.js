@@ -22,7 +22,7 @@ async function getWeatherAPIData(location = 'London') {
 // take data object from the API and return only needed information
 function processWeatherData(APIData) {
 	const weatherData = {
-		name: APIData.name,
+		city: APIData.name,
 		country: APIData.sys.country,
 		weather: APIData.weather[0].description,
 		temp: APIData.main.temp,
