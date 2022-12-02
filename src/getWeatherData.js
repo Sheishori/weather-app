@@ -6,7 +6,7 @@ async function getWeatherData(location) {
 
 // get weather data from OpenWeather API with default city being London
 async function getWeatherAPIData(location = 'London') {
-	const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London&APPID=31cc72b5a0cd8e85f3b76bb2c36522ed', {mode: 'cors'});
+	const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=31cc72b5a0cd8e85f3b76bb2c36522ed`, {mode: 'cors'});
 	const APIData = await response.json();
 	return APIData;
 };
