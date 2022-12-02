@@ -1,11 +1,16 @@
+async function getWeatherData(location) {
+	const APIData = await getWeatherAPIData(location);
+	const weatherData = processWeatherData(APIData);
+	return weatherData;
+};
+
 async function getWeatherAPIData(location = 'London') {
 	const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London&APPID=31cc72b5a0cd8e85f3b76bb2c36522ed', {mode: 'cors'});
 	const APIData = await response.json();
 	return APIData;
 };
 
-async function processWeatherData() {
-	const APIData = await getWeatherAPIData();
+function processWeatherData(APIData) {
 	const weatherData = {
 		name: APIData.name,
 		country: APIData.sys.country,
@@ -18,4 +23,4 @@ async function processWeatherData() {
 	return weatherData;
 };
 
-console.log(processWeatherData());
+console.log(getWeatherData());
