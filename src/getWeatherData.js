@@ -1,7 +1,15 @@
 async function getWeatherData(location) {
-	const APIData = await getWeatherAPIData(location);
-	const weatherData = processWeatherData(APIData);
-	return weatherData;
+	try {
+		const APIData = await getWeatherAPIData(location);
+		if (APIData.cod === 200) {
+			const weatherData = processWeatherData(APIData);
+			return weatherData;
+		} else {
+			return APIData.message;
+		}
+	} catch (error) {
+		console.log(error);
+	};
 };
 
 // get weather data from OpenWeather API with default city being London
