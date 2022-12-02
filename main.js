@@ -1,0 +1,1 @@
+!async function(o="London"){const a=await fetch("https://api.openweathermap.org/data/2.5/weather?q=London&APPID=31cc72b5a0cd8e85f3b76bb2c36522ed",{mode:"cors"}),n=await a.json();console.log(n)}();
