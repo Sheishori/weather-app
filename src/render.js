@@ -11,34 +11,41 @@ function render() {
 	const wind = document.getElementById('wind');
 	const input = document.getElementById('location');
 	const searchButton = document.getElementById('search');
-	const convertButton = document.getElementById('convert');
+	const switchButton = document.getElementById('switch');
 	let weatherData = '';
-	let weatherUnit = 'C';
+	let tempUnit = 'C';
 	
-	async function setHTML(location) {
+	// add weather information to proper divs
+	async function setWeather(location) {
 		weatherData = await getWeatherData(location);
+		// display error if occured and clear weather divs
 		if (!weatherData.city) {
 			city.textContent = weatherData.charAt(0).toUpperCase() + weatherData.slice(1);
 			clearWeather();
+			switchButton.style.display = 'none';
 			img.src = await getGIF('shrug');
 			return;
 		};
-		convertButton.style.display = 'inherit';
+		switchButton.style.display = 'inherit';
 		city.textContent = `${weatherData.city}, ${weatherData.country}`;
 		weather.textContent = weatherData.weather.charAt(0).toUpperCase() + weatherData.weather.slice(1);
-		if (weatherUnit === "C") {
-			temp.textContent = `${weatherData.tempC}°C`;
-		} else {
-			temp.textContent = `${weatherData.tempF}°F`;
-		}
+		setTemperature();
 		pressure.textContent = `Pressure: ${weatherData.pressure} hPa`;
 		humidity.textContent = `Humidity: ${weatherData.humidity}%`;
 		wind.textContent = `Wind: ${weatherData.wind} km/h`;
 		img.src = await getGIF(weatherData.main);
 	};
 
+	function setTemperature() {
+		if (tempUnit === "C") {
+			temp.textContent = `${weatherData.tempC}°C`;
+		} else {
+			temp.textContent = `${weatherData.tempF}°F`;
+		}
+	};
+
+	// clear weather divs in case of an error
 	function clearWeather() {
-		convertButton.style.display = 'none';
 		weather.textContent = '';
 		temp.textContent = '';
 		pressure.textContent = '';
@@ -46,23 +53,19 @@ function render() {
 		wind.textContent = '';
 	};
 
-	function convertTemperature() {
-		weatherUnit = (weatherUnit === "C") ? "F" : "C";
-		if (weatherUnit === "C") {
-			temp.textContent = `${weatherData.tempC}°C`;
-		} else {
-			temp.textContent = `${weatherData.tempF}°F`;
-		}
+	function switchUnit() {
+		tempUnit = (tempUnit === "C") ? "F" : "C";
+		setTemperature();
 	};
 
-	convertButton.addEventListener('click', (convertTemperature));
+	switchButton.addEventListener('click', switchUnit);
 
 	searchButton.addEventListener('click', (e) => {
 		e.preventDefault();
-		setHTML(input.value);
+		setWeather(input.value);
 	});
 
-	setHTML();
+	setWeather();
 };
 
 export default render;
