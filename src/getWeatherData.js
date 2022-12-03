@@ -29,7 +29,7 @@ function processWeatherData(APIData) {
 		temp: APIData.main.temp,
 		pressure: APIData.main.pressure,
 		humidity: APIData.main.humidity,
-		wind: APIData.wind.speed,
+		wind: Math.round((APIData.wind.speed * 3600) / 1000),
 	};
 	return weatherData;
 };
