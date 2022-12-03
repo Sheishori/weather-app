@@ -3,7 +3,6 @@ import getGIF from './getGIF';
 
 const img = document.querySelector('img');
 const city = document.getElementById('city');
-const country = document.getElementById('country');
 const weather = document.getElementById('weather');
 const temp = document.getElementById('temp');
 const pressure = document.getElementById('pressure');
@@ -20,13 +19,12 @@ button.addEventListener('click', (e) => {
 
 async function setHTML(location) {
 	const weatherData = await getWeatherData(location);
-	city.textContent = weatherData.city;
-	country.textContent = weatherData.country;
+	city.textContent = `${weatherData.city}, ${weatherData.country}`;
 	weather.textContent = weatherData.weather;
 	temp.textContent = weatherData.temp;
-	pressure.textContent = weatherData.pressure;
-	humidity.textContent = weatherData.humidity;
-	wind.textContent = weatherData.wind;
+	pressure.textContent = `Pressure: ${weatherData.pressure}`;
+	humidity.textContent = `Humidity: ${weatherData.humidity}`;
+	wind.textContent = `Wind: ${weatherData.wind}`;
 	img.src = await getGIF(weatherData.main);
 };
 
