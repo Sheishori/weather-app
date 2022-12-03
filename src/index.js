@@ -19,6 +19,12 @@ button.addEventListener('click', (e) => {
 
 async function setHTML(location) {
 	const weatherData = await getWeatherData(location);
+	if (!weatherData.city) {
+		city.textContent = weatherData.charAt(0).toUpperCase() + weatherData.slice(1);
+		clearWeather();
+		img.src = await getGIF('shrug');
+		return;
+	};
 	city.textContent = `${weatherData.city}, ${weatherData.country}`;
 	weather.textContent = weatherData.weather;
 	temp.textContent = weatherData.temp;
@@ -26,6 +32,14 @@ async function setHTML(location) {
 	humidity.textContent = `Humidity: ${weatherData.humidity}`;
 	wind.textContent = `Wind: ${weatherData.wind}`;
 	img.src = await getGIF(weatherData.main);
+};
+
+function clearWeather() {
+	weather.textContent = '';
+	temp.textContent = '';
+	pressure.textContent = '';
+	humidity.textContent = '';
+	wind.textContent = '';
 };
 
 setHTML();
