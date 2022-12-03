@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+		"header header"
+		"info img"
+		"footer footer";
+	justify-items: center;
+	align-items: center;
+}
+
+h1 {
+	margin-top: 3rem;
+}
+
+header {
+	grid-area: header;
+	text-align: center;
+}
+
+#info {
+	grid-area: info;
+	justify-self: right;
+	margin: 5rem;
+}
+
+#info + img {
+	grid-area: img;
+	justify-self: left;
+}
+
+footer {
+	grid-area: footer;
+}

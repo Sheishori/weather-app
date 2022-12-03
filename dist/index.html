@@ -9,21 +9,26 @@
 	<title>Weather App</title>
 </head>
 <body>
-	<h1>Current weather</h1>
+	<header>
+		<h1>Current weather</h1>
+		<form>
+			<label for="location">Enter location:</label>
+			<input type="text" name="location" id="location">
+			<button id="search">Search</button>
+		</form>
+	</header>
 	<div id="info">
 		<div id="city"></div>
 		<div id="weather"></div>
-		<div id="temp"></div>
+		<span id="temp"></span>
 		<button id="switch">°C / °F</button>
 		<div id="pressure"></div>
 		<div id="humidity"></div>
 		<div id="wind"></div>
-		<img src="" alt="">
 	</div>
-	<form>
-		<label for="location">Enter location:</label>
-		<input type="text" name="location" id="location">
-		<button id="search">Search</button>
-	</form>
+	<img src="" alt="">
+	<footer>
+		<div>ⒸSheishori</div>
+	</footer>
 </body>
 </html>

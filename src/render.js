@@ -26,7 +26,7 @@ function render() {
 			img.src = await getGIF('shrug');
 			return;
 		};
-		switchButton.style.display = 'inherit';
+		switchButton.style.display = 'inline-block';
 		city.textContent = `${weatherData.city}, ${weatherData.country}`;
 		weather.textContent = weatherData.weather.charAt(0).toUpperCase() + weatherData.weather.slice(1);
 		setTemperature();
