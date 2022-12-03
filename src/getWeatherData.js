@@ -24,6 +24,7 @@ function processWeatherData(APIData) {
 	const weatherData = {
 		city: APIData.name,
 		country: APIData.sys.country,
+		main: APIData.weather[0].main,
 		weather: APIData.weather[0].description,
 		temp: APIData.main.temp,
 		pressure: APIData.main.pressure,

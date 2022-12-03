@@ -1,5 +1,7 @@
 import getWeatherData from './getWeatherData';
+import getGIF from './getGIF';
 
+const img = document.querySelector('img');
 const city = document.getElementById('city');
 const country = document.getElementById('country');
 const weather = document.getElementById('weather');
@@ -25,6 +27,7 @@ async function setHTML(location) {
 	pressure.textContent = weatherData.pressure;
 	humidity.textContent = weatherData.humidity;
 	wind.textContent = weatherData.wind;
+	img.src = await getGIF(weatherData.main);
 };
 
 setHTML();
