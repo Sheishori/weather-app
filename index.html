@@ -9,6 +9,7 @@
 	<title>Weather App</title>
 </head>
 <body>
+	<div id="background"></div>
 	<header>
 		<h1>Current weather</h1>
 		<form>
@@ -19,9 +20,11 @@
 	</header>
 	<div id="info">
 		<div id="city"></div>
+		<div id="temp-field">
+			<span id="temp"></span>
+			<button id="switch">°C / °F</button>
+		</div>
 		<div id="weather"></div>
-		<span id="temp"></span>
-		<button id="switch">°C / °F</button>
 		<div id="pressure"></div>
 		<div id="humidity"></div>
 		<div id="wind"></div>
@@ -29,6 +32,7 @@
 	<img src="" alt="">
 	<footer>
 		<div>ⒸSheishori</div>
+		Photo by <a href="https://unsplash.com/@markkoenig">Mark König</a> on <a href="https://unsplash.com">Unsplash</a>
 	</footer>
 </body>
 </html>
