@@ -4,6 +4,7 @@ import getGIF from './getGIF';
 function render() {
 	const img = document.querySelector('img');
 	const city = document.getElementById('city');
+	const country = document.getElementById('country');
 	const weather = document.getElementById('weather');
 	const temp = document.getElementById('temp');
 	const pressure = document.getElementById('pressure');
@@ -27,7 +28,8 @@ function render() {
 			return;
 		};
 		switchButton.style.display = 'inline-block';
-		city.textContent = `${weatherData.city}, ${weatherData.country}`;
+		city.textContent = weatherData.city;
+		country.textContent = weatherData.country;
 		weather.textContent = weatherData.weather.charAt(0).toUpperCase() + weatherData.weather.slice(1);
 		setTemperature();
 		pressure.textContent = `Pressure: ${weatherData.pressure} hPa`;
