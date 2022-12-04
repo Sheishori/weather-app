@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Pangolin&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -16,9 +18,9 @@ body {
 		"footer footer";
 	justify-items: center;
 	align-items: center;
-	font-family: roboto;
+	font-family: Montserrat, Roboto, monospace;
 	color: white;
-	background-color: rgb(17, 20, 32);
+	background-color: rgb(82, 90, 121);
 }
 
 #background {
@@ -27,7 +29,7 @@ body {
 	width: 100%;
 	height: 100%;
 	background: top / cover no-repeat url(./bg.jpg);
-	opacity: 0.5;
+	opacity: 0.3;
 }
 
 h1 {
@@ -46,15 +48,23 @@ input {
 	border: none;
 	border-radius: 0.3rem;
 	padding: 0.2rem 0.4rem;
+	font-family: Montserrat, Roboto, monospace;
 }
 
 #info {
 	grid-area: info;
 	justify-self: right;
 	align-self: start;
-	width: 19rem;
+	min-width: 19rem;
 	margin: 0 5rem;
 	font-size: 1.5rem;
+	font-weight: 300;
+	background-color: rgba(13, 20, 48, 0.5);
+	padding: 1rem;
+}
+
+#info div {
+	margin: 0.4rem;
 }
 
 #place {
@@ -63,8 +73,8 @@ input {
 }
 
 #city {
-	font-size: 3rem;
-	font-weight: bold;
+	font-size: 4rem;
+	font-weight: 600;
 	margin: 0 0.5rem;
 }
 
@@ -80,6 +90,7 @@ input {
 
 #temp {
 	font-size: 6rem;
+	font-weight: 400;
 }
 
 #switch {
@@ -92,10 +103,14 @@ input {
 	border: solid 2px rgb(2, 73, 155);
 	border-radius: 10%;
 	padding: 0.2rem;
+	font-family: Montserrat, Roboto, monospace;
+	font-weight: 600;
+	font-size: 0.9rem;
 }
 
 #weather {
-	font-size: 2rem;
+	font-size: 2.5rem;
+	font-weight: 600;
 }
 
 #info + img {
