@@ -7,15 +7,18 @@ body {
 	position: relative;
 	min-height: 100vh;
 	display: grid;
-	grid-template-rows: auto 1fr auto;
+	grid-template-rows: auto auto 1fr auto;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas:
 		"header header"
+		"bar bar"
 		"info img"
 		"footer footer";
 	justify-items: center;
 	align-items: center;
 	font-family: roboto;
+	color: white;
+	background-color: rgb(17, 20, 32);
 }
 
 #background {
@@ -28,7 +31,6 @@ body {
 }
 
 h1 {
-	font-size: 3rem;
 	margin: 3rem 0 1rem 0;
 }
 
@@ -37,15 +39,37 @@ header {
 	text-align: center;
 }
 
+input {
+	font-size: 1rem;
+	background-color: rgb(37, 37, 37);
+	color: white;
+	border: none;
+	border-radius: 0.3rem;
+	padding: 0.2rem 0.4rem;
+}
+
 #info {
 	grid-area: info;
 	justify-self: right;
-	margin: 5rem;
+	align-self: start;
+	width: 19rem;
+	margin: 0 5rem;
 	font-size: 1.5rem;
 }
 
+#place {
+	grid-area: bar;
+	margin: 5rem;
+}
+
 #city {
-	font-size: 2.5rem;
+	font-size: 3rem;
+	font-weight: bold;
+	margin: 0 0.5rem;
+}
+
+#country {
+	font-size: 3rem;
 }
 
 #temp-field {
@@ -55,7 +79,19 @@ header {
 }
 
 #temp {
-	font-size: 3rem;
+	font-size: 6rem;
+}
+
+#switch {
+	margin-left: auto;
+}
+
+#switch, #search {
+	color: white;
+	background-color: rgb(48, 136, 207);
+	border: solid 2px rgb(2, 73, 155);
+	border-radius: 10%;
+	padding: 0.2rem;
 }
 
 #weather {
@@ -65,6 +101,7 @@ header {
 #info + img {
 	grid-area: img;
 	justify-self: left;
+	align-self: start;
 }
 
 footer {
